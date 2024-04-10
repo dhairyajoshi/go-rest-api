@@ -1,4 +1,4 @@
-module github.com/dhairyajoshi
+module github.com/dhairyajoshi/go-rest-api
 
 go 1.22.2
 

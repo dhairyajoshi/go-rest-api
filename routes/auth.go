@@ -1,13 +1,14 @@
 package routes
 
-import "github.com/gin-gonic/gin"
-import "github.com/dhairyajoshi/controllers"
+import (
+	"github.com/dhairyajoshi/go-rest-api/controllers"
+	"github.com/gin-gonic/gin"
+)
 
-func registerAuthRoutes(server *gin.Engine){
+func registerAuthRoutes(server *gin.Engine) {
 	auth := server.Group("/auth/")
 
 	auth.POST("signup/", controllers.UserSignUp)
 
 	auth.POST("login/", controllers.UserLogin)
 }
-

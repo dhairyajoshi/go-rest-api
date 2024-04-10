@@ -1,11 +1,11 @@
 package main
 
 import (
+	"github.com/dhairyajoshi/go-rest-api/routes"
 	"github.com/gin-gonic/gin"
-	"github.com/dhairyajoshi/routes"
 )
 
-func main(){
+func main() {
 	server := gin.Default()
 
 	routes.RegisterRoutes(server)
