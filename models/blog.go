@@ -1,15 +1,43 @@
 package models
 
-import "time"
+import (
+	"github.com/dhairyajoshi/go-rest-api/helpers/database"
+	"gorm.io/gorm"
+)
 
-type Blog struct{
-	Id int64
-	Title string
+type Blog struct {
+	gorm.Model
+	Title   string
 	Content string
-	CreatedAt time.Time
-	UserId int64
+	UserId  int64
 }
 
-func (e Blog) Save(){
-	
+func MigrateBlogs() {
+
+	conn := database.GetDbConnection()
+
+	conn.AutoMigrate(&Blog{})
+}
+
+func (blog Blog) Save() {
+	conn := database.GetDbConnection()
+
+	conn.Create(&blog)
+
+}
+
+func (blog Blog) Get(id ...int64) []Blog {
+	conn := database.GetDbConnection()
+	var blogs []Blog
+
+	if len(id) == 1 {
+
+		conn.First(&blogs, "id = ?", id[0])
+
+		return blogs
+	}
+
+	conn.Find(&blogs)
+
+	return blogs
 }

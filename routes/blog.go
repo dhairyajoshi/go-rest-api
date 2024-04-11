@@ -10,5 +10,8 @@ func registerBlogRoutes(server *gin.Engine) {
 
 	blog.POST("", controllers.AddBlog)
 
+	blog.GET("/:id", controllers.GetBlog)
+
 	blog.GET("", controllers.GetBlogs)
+
 }
