@@ -19,7 +19,9 @@ func AddBlog(context *gin.Context) {
 
 func GetBlogs(context *gin.Context) {
 
-	blogs := models.Blog{}.Get()
+	Blog := models.Blog{}
+
+	blogs := Blog.Get()
 
 	var response []map[string]any
 

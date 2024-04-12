@@ -12,7 +12,7 @@ type Blog struct {
 	UserId  int64
 }
 
-func MigrateBlogs() {
+func migrateBlogs() {
 
 	conn := database.GetDbConnection()
 

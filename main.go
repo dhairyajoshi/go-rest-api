@@ -12,7 +12,7 @@ func main() {
 
 	server := gin.Default()
 
-	models.MigrateBlogs()
+	models.MigrateModels()
 
 	routes.RegisterRoutes(server)
 
